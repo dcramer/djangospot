@@ -19,7 +19,7 @@ class JSONField(forms.CharField):
         except Exception, exc:
             raise forms.ValidationError(u'JSON decode error: %s' % (unicode(exc),))
 
-class SeparatedValuesWidget(Textarea):
+class SeparatedValuesWidget(forms.Textarea):
     def render(self, name, value, attrs=None):
         if value and not isinstance(value, basestring):
             value = ','.join(value)
