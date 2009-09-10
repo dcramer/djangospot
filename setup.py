@@ -23,7 +23,6 @@ setup(
         'django-sphinx>=2.0.2',
         'django-tagging',
         'MySQL-python',
-        'PIL',
     ],
     description="",
 )
