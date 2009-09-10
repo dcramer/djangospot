@@ -1,6 +1,7 @@
 from django.db import models
 from djangospot.utils.fields import *
 from tagging.fields import TagField
+from djangoratings.fields import RatingField
 
 from django.contrib.auth.models import User
 
@@ -33,12 +34,14 @@ class App(models.Model):
     license_description = models.TextField()
     tags                = TagField(blank=True, null=True)
     website             = models.URLField(verify_exists=False)
-    owner               = models.ForeignKey(User)
+    # If the app has not been claimed then there is no owner.
+    owner               = models.ForeignKey(User, blank=True, null=True)
     # TODO: we should improve this and create some kind of denormalized M2M field
     categories          = models.ManyToManyField(Category)
     category_ids        = SeperatedValuesField()
     roles               = models.ManyToManyField(User, through="AppRole")
     locales             = SeperatedValuesField(blank=True, null=True)
+    rating_overall      = RatingField(range=5)
     date_added          = CreatedDateTimeField(editable=False)
     date_changed        = ModifiedDateTimeField(editable=False)
 
