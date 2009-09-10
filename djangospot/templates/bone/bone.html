@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Traditional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-traditional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>{% block title %}{% if TITLE %}{{ TITLE|escape }}{% endif %}{% endblock %}</title>
+
+		<!-- Meta Information -->
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		{% if GOOGLE_WEBMASTER_TOKEN %}
+			<meta name="verify-v1" content="{{ GOOGLE_WEBMASTER_TOKEN }}"/>
+		{% endif %}
+		{% if MSN_WEBMASTER_TOKEN %}
+			<meta name="msvalidate.01" content="{{ MSN_WEBMASTER_TOKEN }}"/>
+		{% endif %}
+		{% if YAHOO_WEBMASTER_TOKEN %}
+			<meta name="y_key" content="0f8fd95c6d8d42ec"/>
+		{% endif %}
+
+		{% if META %}
+			{% for tag, value in META.iteritems() %}
+				<meta name="{{ tag|escape }}" content="{{ value|escape }}"/>
+			{% endfor %}
+		{% endif %}
+
+		{% if CANONICAL_URL %}
+			<!-- Canonical -->
+			<link rel="canonical" href="{{ request.build_absolute_uri(CANONICAL_URL) }}"/>
+		{% endif %}
+
+		<!-- Common Stylesheets -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ mediaurl('styles/global.css') }}" />
+
+		<!-- Inlined Meta -->
+		{% block meta %}{% endblock %}
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
