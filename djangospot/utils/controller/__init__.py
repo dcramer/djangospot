@@ -4,7 +4,7 @@ from django.http import Http404
 
 class Controller(object):
     def __call__(self, request, *args, **kwargs):
-        method = REQUEST.method.lower()
+        method = request.method.lower()
         view = getattr(self, method, getattr(self, 'get'))
         return view(request, *args, **kwargs)
     
