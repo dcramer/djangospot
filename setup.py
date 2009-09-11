@@ -19,7 +19,7 @@ setup(
         'coffin>=0.1',
         'python-dateutil',
         'python-memcached==1.43',
-        'django-ratings>=0.2.1',
+        'django-ratings>=0.3.1',
         'django-sphinx>=2.0.2',
         'django-tagging',
         'MySQL-python',
