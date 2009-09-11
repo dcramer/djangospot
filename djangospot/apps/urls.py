@@ -1,8 +1,8 @@
 from coffin.conf.urls.defaults import *
 
-urlpatterns = patterns('',
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+import views
 
-    url(r'^', include('djangospot.apps.urls')),
+urlpatterns = patterns('',
+    url(r'^', IndexController(), name='apps.index'),
+    url(r'submit^', SubmitController(), name='apps.submit'),
 )
