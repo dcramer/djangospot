@@ -2,3 +2,4 @@
 /dist
 /build
 /DjangoSpot.egg-info
+/djangospot/local_settings.py
