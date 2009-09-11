@@ -1,0 +1,75 @@
+td { vertical-align: top; }
+legend { font-size: 1.4em; padding: 0 10px; margin-bottom: 10px; color: #069; }
+fieldset { margin: 10px 0; }
+div.formRow { padding: 6px 10px 6px 170px; margin: 1px 0; position: relative; }
+form.wide-labels div.formRow { padding-left: 225px; }
+form.wide-labels div.formRow label { width: 215px; }
+div.noMarginRow { padding-left: 10px !important; }
+div.innerRow { margin-left: 20px; padding-left: 150px; }
+form.wide-labels div.innerRow { padding-left: 205px; }
+.box div.formRow, form div.fButtonInputRow { background: none; }
+div.formRow small.helptext { font-size: 0.8em; color: #999; }
+div.formRow label { width: 160px; display: block; position: absolute; left: 10px; }
+div.fRequired label { font-weight: bold; }
+div.formRow small { padding: 5px 0 0 0; display: block; }
+div.fCheckboxInputRow label, div.fRadioInputRow label { position: relative; left: auto; width: auto !important; }
+div.fCheckboxInputRow input, div.fRadioInputRow input { display: inline; }
+div.fVisibleHiddenInputRow { display: none; }
+ul.errorlist { font-size: 0.9em; font-weight: bold; }
+.formRow ul.errorlist { padding: 5px 0 0 0; margin: 0; list-style-type: none; }
+textarea, input.text, select, div.fPasswordInputRow input, div.fTextInputRow input, div.fAddressInputRow input, div.fInlineModelChoiceWidgetRow input, div.fDateTimeInputRow input {
+	border: 1px solid #999;
+	color: #777;
+	background: #fefefe;
+}
+div.formRow #map_canvas { width: 300px; height: 200px; margin-top: 5px; border: 1px solid #aaa; }
+div.formRow #map_message { color: red; font-weight: bold; margin-top: 5px; font-size: 0.9em; }
+#map_canvas { overflow: hidden; }
+#map { margin-bottom:18px; width:332px; height: 280px; border:1px solid #666; }
+.side #map_canvas { width: 334px; height: 334px; }
+
+input, select { vertical-align: middle; }
+input.text, div.fTextInputRow input, div.fAddressInputRow input, option, div.fPasswordInputRow input, div.fInlineModelChoiceWidgetRow input, div.fDateTimeInputRow input {
+	width: 240px;
+	padding: 1px 3px;
+}
+div.fSelectRow select { width: 250px; }
+div.fRadioSelectRow {
+   padding-left: 10px; 
+}
+div.fRadioSelectRow label { display: none; width: auto; font-weight: normal; }
+div.fRadioSelectRow li label {
+	position: static;
+	display: block;
+}
+div.fRadioSelectRow ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+input:focus, select:focus, textarea:focus { border-color: #777; color: #666; background: #fff; }
+textarea {
+	padding: 5px;
+}
+button, div.fButtonInputRow input {
+	cursor: pointer;
+	font-weight: bold;
+	padding: 3px 8px;
+	color: #333;
+	background: #ccc;
+	font-size: 0.9em;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+}
+button:hover, div.fButtonInputRow input:hover {
+	background-color: #eee;
+	color: #990000;
+}
+div.formRow .disabled { background: #ddd; }
+div.fInputErrorRow, ul.errorlist { color: red; }
+div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red; }
+div.formRow .remove-link { padding-left: 15px; text-decoration: none; }
+div.formRow .category-row { padding-bottom: 5px; }
+input.readonly { background: #eee !important; }
