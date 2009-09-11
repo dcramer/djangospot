@@ -23,5 +23,6 @@ class SubmitController(Controller):
         context = {
             'form': form,
         }
+
         return self.respond('apps/submit.html', context, request)
         

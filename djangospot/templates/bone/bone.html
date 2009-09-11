@@ -35,6 +35,12 @@
 		{% block meta %}{% endblock %}
 	</head>
 	<body>
+        
+        <ul>
+            <li><a href="{% url apps.index %}">Home</a></li>
+            <li><a href="{% url apps.submit %}">Submit</a></li>
+        </ul>
+
 		{% block content %}
 		{% endblock %}
 	</body>
