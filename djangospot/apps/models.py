@@ -41,7 +41,7 @@ class App(models.Model):
     categories          = models.ManyToManyField(Category)
     category_ids        = SeparatedValuesField()
     roles               = models.ManyToManyField(User, through="AppRole", related_name="app_set")
-    locales             = SeparatedValuesField(blank=True, null=True)
+    locales             = SeparatedValuesField(blank=True, null=True) # Usage: model.locales = [1,2,3]
     rating_overall      = RatingField(range=5)
     date_added          = CreatedDateTimeField(editable=False)
     date_changed        = ModifiedDateTimeField(editable=False)

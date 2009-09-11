@@ -1,5 +1,10 @@
 {% extends "bone/bone.html" %}
 
 {% block content %}
-Hello.
+
+<ul>
+{% for app in apps %}
+    <li><a href='{% url apps.view app.pk %}'>{{ app }}</a></li>
+{% endfor %}
+</ul>
 {% endblock content %}
