@@ -29,6 +29,7 @@ class App(models.Model):
     app_id              = UUIDField(auto=True)
     name                = models.CharField(max_length=128)
     description         = models.TextField()
+    # If they specify an alternative license the foreign key will be empty.
     license             = models.ForeignKey(License, blank=True, null=True)
     license_name        = models.CharField(max_length=128)
     license_description = models.TextField()
@@ -36,7 +37,7 @@ class App(models.Model):
     website             = models.URLField(verify_exists=False)
     # If the app has not been claimed then there is no owner.
     owner               = models.ForeignKey(User, blank=True, null=True, related_name="owned_app_set")
-    # TODO: we should improve this and create some kind of denormalized M2M field
+    # TODO: we should improve this and create some kind of denormalized M2M field.
     categories          = models.ManyToManyField(Category)
     category_ids        = SeparatedValuesField()
     roles               = models.ManyToManyField(User, through="AppRole", related_name="app_set")
