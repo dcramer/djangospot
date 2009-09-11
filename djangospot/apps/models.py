@@ -38,9 +38,9 @@ class App(models.Model):
     owner               = models.ForeignKey(User, blank=True, null=True)
     # TODO: we should improve this and create some kind of denormalized M2M field
     categories          = models.ManyToManyField(Category)
-    category_ids        = SeperatedValuesField()
+    category_ids        = SeparatedValuesField()
     roles               = models.ManyToManyField(User, through="AppRole")
-    locales             = SeperatedValuesField(blank=True, null=True)
+    locales             = SeparatedValuesField(blank=True, null=True)
     rating_overall      = RatingField(range=5)
     date_added          = CreatedDateTimeField(editable=False)
     date_changed        = ModifiedDateTimeField(editable=False)
@@ -49,14 +49,14 @@ class App(models.Model):
         return self.name
 
 class AppRole(models.Model):
-    app                 = models.ForeignKey(App)
-    user                = models.ForeignKey(User)
-    role                = models.IntegerField(choices=AppRole.levels, default=10)
-    
     levels = (
         (10, 'Maintainer'),
         (20, 'Admin'),
     )
+    
+    app                 = models.ForeignKey(App)
+    user                = models.ForeignKey(User)
+    role                = models.IntegerField(choices=levels, default=10)
     
     class Meta:
         db_table = 'apps_app__roles'
