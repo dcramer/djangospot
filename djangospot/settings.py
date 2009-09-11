@@ -91,6 +91,7 @@ INSTALLED_APPS = (
     'south',
     'coffin',
     
+    'djangospot.utils',
     'djangospot.utils.forms',
     'djangospot.utils.fields',
     'djangospot.utils.controller',
