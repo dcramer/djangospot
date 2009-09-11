@@ -35,11 +35,11 @@ class App(models.Model):
     tags                = TagField(blank=True, null=True)
     website             = models.URLField(verify_exists=False)
     # If the app has not been claimed then there is no owner.
-    owner               = models.ForeignKey(User, blank=True, null=True)
+    owner               = models.ForeignKey(User, blank=True, null=True, related_name="owned_app_set")
     # TODO: we should improve this and create some kind of denormalized M2M field
     categories          = models.ManyToManyField(Category)
     category_ids        = SeparatedValuesField()
-    roles               = models.ManyToManyField(User, through="AppRole")
+    roles               = models.ManyToManyField(User, through="AppRole", related_name="app_set")
     locales             = SeparatedValuesField(blank=True, null=True)
     rating_overall      = RatingField(range=5)
     date_added          = CreatedDateTimeField(editable=False)
