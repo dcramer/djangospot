@@ -13,15 +13,14 @@ setup(
     # zip_safe breaks non-python files
     zip_safe=False,
     install_requires=[
-        'Jinja2',
+        'Jinja2>=2.2',
         'Django==1.1',
         'South>=0.6',
         'coffin>=0.1',
-        'python-dateutil',
         'python-memcached==1.43',
         'django-ratings>=0.3.1',
         'django-sphinx>=2.0.2',
-        'django-tagging',
+        'django-tagging>=0.3',
         'MySQL-python',
     ],
     description="",
