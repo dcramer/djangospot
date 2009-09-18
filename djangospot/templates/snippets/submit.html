@@ -1,0 +1,17 @@
+{% extends "bone/bone.html" %}
+
+{% block content %}
+    
+    <h1>
+        Submit A New Snippet
+    </h1>
+    
+    <form action="." method="post" accept-charset="utf-8">
+        <table>
+            {{ form|safe }}
+        </table>
+
+        <p><input type="submit" value="Submit Snippet &rarr;"></p>
+    </form>
+    
+{% endblock %}

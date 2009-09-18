@@ -1,0 +1,21 @@
+{% extends "bone/bone.html" %}
+
+{% block content %}
+
+    <h1>Snippets</h1>
+    
+    <ul>
+        <li><a href="{% url snippets.submit %}">Submit New Snippet</a></li>
+    </ul>
+    
+    {% for snippet in snippets %}
+        <h3>{{ snippet.title }}</h3>
+        {{ snippet.description|restructuredtext }}
+        {{ snippet.highlighted_code|safe }}
+        
+        {% if not loop.last %}
+            <hr />
+        {% endif %}
+    {% endfor %}
+    
+{% endblock %}

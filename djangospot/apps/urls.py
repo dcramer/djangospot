@@ -4,5 +4,5 @@ import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexController(), name='apps.index'),
-    url(r'submit', views.SubmitController(), name='apps.submit'),
+    url(r'^submit/$', views.SubmitController(), name='apps.submit'),
 )
