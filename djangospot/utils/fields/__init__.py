@@ -109,6 +109,17 @@ class ModifiedDateTimeField(models.DateTimeField):
         setattr(model_instance, self.attname, value)
         return value
 
+class AutoSlugField(models.CharField):
+    def __init__(self, for_field, *args, **kwargs):
+        self.for_field = for_field
+        super(AutoSlugField, self).__init__(*args, **kwargs)
+    
+    def pre_save(self, model_instance, add):
+        from django.template.defaultfilters import slugify
+        
+        value_to_slugify = getattr(model_instance, self.for_field)
+        return slugify(value_to_slugify)
+
 class SeparatedValuesField(models.TextField):
     __metaclass__ = models.SubfieldBase
 

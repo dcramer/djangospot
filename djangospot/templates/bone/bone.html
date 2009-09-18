@@ -29,6 +29,7 @@
 
 		<!-- Common Stylesheets -->
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ mediaurl('styles/global.css') }}" />
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ mediaurl('styles/code.css') }}" />
 
 		<script type="text/javascript" src="{{ mediaurl('scripts/mootools-1.2.3.js') }}"></script>
 
@@ -40,6 +41,7 @@
         <ul>
             <li><a href="{% url apps.index %}">Home</a></li>
             <li><a href="{% url apps.submit %}">Submit</a></li>
+            <li><a href="{% url snippets.index %}">Snippets</a></li>
         </ul>
 
 		{% block content %}

@@ -52,7 +52,7 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/admin_media/'
+ADMIN_MEDIA_PREFIX = '/admin/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$shhsjqspsx3$sebe%+*qr49nr4o$f%&mak(91@sduv!(!%@l6'
@@ -80,6 +80,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -89,8 +90,10 @@ INSTALLED_APPS = (
     'djangoratings',
     'djangosphinx',
     'tagging',
-    'south',
+    # 'south',
+    'treebeard',
     'coffin',
+    'coffin.contrib.markup',
     
     'djangospot.utils',
     'djangospot.utils.forms',
@@ -98,6 +101,8 @@ INSTALLED_APPS = (
     'djangospot.utils.controller',
     
     'djangospot.apps',
+    'djangospot.snippets',
+    
 )
 
 CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
