@@ -85,7 +85,7 @@ class Migration:
     
     models = {
         'apps.app': {
-            'app_id': ('iplatform.core.fields.idtypes.UUIDField', [], {'version': '4', 'auto': 'True', 'max_length': '32', 'blank': 'True', 'unique': 'True', 'name': "'app_id'"}),
+            'app_id': ('djangspot.utils.fields.UUIDField', [], {'version': '4', 'auto': 'True', 'max_length': '32', 'blank': 'True', 'unique': 'True', 'name': "'app_id'"}),
             'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['apps.Category']"}),
             'category_ids': ('djangospot.utils.fields.SeparatedValuesField', [], {'token': "','"}),
             'date_added': ('CreatedDateTimeField', [], {'editable': 'False'}),
@@ -114,13 +114,13 @@ class Migration:
         'apps.category': {
             'description': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'license_id': ('iplatform.core.fields.idtypes.UUIDField', [], {'version': '4', 'auto': 'True', 'max_length': '32', 'blank': 'True', 'unique': 'True', 'name': "'license_id'"}),
+            'license_id': ('djangspot.utils.fields.UUIDField', [], {'version': '4', 'auto': 'True', 'max_length': '32', 'blank': 'True', 'unique': 'True', 'name': "'license_id'"}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '128'})
         },
         'apps.license': {
             'description': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'license_id': ('iplatform.core.fields.idtypes.UUIDField', [], {'version': '4', 'auto': 'True', 'max_length': '32', 'blank': 'True', 'unique': 'True', 'name': "'license_id'"}),
+            'license_id': ('djangspot.utils.fields.UUIDField', [], {'version': '4', 'auto': 'True', 'max_length': '32', 'blank': 'True', 'unique': 'True', 'name': "'license_id'"}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '128'})
         },
         'auth.group': {
