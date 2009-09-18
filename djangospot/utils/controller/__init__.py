@@ -20,3 +20,7 @@ class Controller(object):
         else:
             req_context = None
         return render_to_response(template, context, req_context, mimetype)
+        
+    def redirect(self, redirect_to):
+        from django.shortcuts import redirect
+        return redirect(redirect_to)
