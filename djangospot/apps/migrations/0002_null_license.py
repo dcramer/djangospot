@@ -6,81 +6,11 @@ from djangospot.apps.models import *
 class Migration:
     
     def forwards(self, orm):
-        
-        # Adding model 'Category'
-        db.create_table('apps_category', (
-            ('id', orm['apps.Category:id']),
-            ('license_id', orm['apps.Category:license_id']),
-            ('name', orm['apps.Category:name']),
-            ('description', orm['apps.Category:description']),
-        ))
-        db.send_create_signal('apps', ['Category'])
-        
-        # Adding model 'License'
-        db.create_table('apps_license', (
-            ('id', orm['apps.License:id']),
-            ('license_id', orm['apps.License:license_id']),
-            ('name', orm['apps.License:name']),
-            ('description', orm['apps.License:description']),
-        ))
-        db.send_create_signal('apps', ['License'])
-        
-        # Adding model 'AppRole'
-        db.create_table('apps_app__roles', (
-            ('id', orm['apps.AppRole:id']),
-            ('app', orm['apps.AppRole:app']),
-            ('user', orm['apps.AppRole:user']),
-            ('role', orm['apps.AppRole:role']),
-        ))
-        db.send_create_signal('apps', ['AppRole'])
-        
-        # Adding model 'App'
-        db.create_table('apps_app', (
-            ('id', orm['apps.App:id']),
-            ('app_id', orm['apps.App:app_id']),
-            ('name', orm['apps.App:name']),
-            ('description', orm['apps.App:description']),
-            ('license', orm['apps.App:license']),
-            ('license_name', orm['apps.App:license_name']),
-            ('license_description', orm['apps.App:license_description']),
-            ('tags', orm['apps.App:tags']),
-            ('website', orm['apps.App:website']),
-            ('owner', orm['apps.App:owner']),
-            ('category_ids', orm['apps.App:category_ids']),
-            ('locales', orm['apps.App:locales']),
-            ('date_added', orm['apps.App:date_added']),
-            ('date_changed', orm['apps.App:date_changed']),
-            ('rating_overall_votes', orm['apps.App:rating_overall_votes']),
-            ('rating_overall_score', orm['apps.App:rating_overall_score']),
-        ))
-        db.send_create_signal('apps', ['App'])
-        
-        # Adding ManyToManyField 'App.categories'
-        db.create_table('apps_app_categories', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('app', models.ForeignKey(orm.App, null=False)),
-            ('category', models.ForeignKey(orm.Category, null=False))
-        ))
-        
+        "Write your forwards migration here"
     
     
     def backwards(self, orm):
-        
-        # Deleting model 'Category'
-        db.delete_table('apps_category')
-        
-        # Deleting model 'License'
-        db.delete_table('apps_license')
-        
-        # Deleting model 'AppRole'
-        db.delete_table('apps_app__roles')
-        
-        # Deleting model 'App'
-        db.delete_table('apps_app')
-        
-        # Dropping ManyToManyField 'App.categories'
-        db.delete_table('apps_app_categories')
-        
+        "Write your backwards migration here"
     
     
     models = {
@@ -93,8 +23,8 @@ class Migration:
             'description': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'license': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['apps.License']", 'null': 'True', 'blank': 'True'}),
-            'license_description': ('django.db.models.fields.TextField', [], {}),
-            'license_name': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+            'license_description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'license_name': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True', 'blank': 'True'}),
             'locales': ('djangospot.utils.fields.SeparatedValuesField', [], {'token': "','", 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'owned_app_set'", 'null': 'True', 'to': "orm['auth.User']"}),

@@ -21,6 +21,7 @@ setup(
         'django-ratings>=0.3.1',
         'django-sphinx>=2.0.2',
         'django-tagging>=0.3',
+        'django-treebeard',
         'MySQL-python',
     ],
     description="",

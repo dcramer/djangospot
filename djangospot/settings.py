@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'djangoratings',
     'djangosphinx',
     'tagging',
-    # 'south',
+    'south',
     'treebeard',
     'coffin',
     'coffin.contrib.markup',

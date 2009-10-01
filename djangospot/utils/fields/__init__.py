@@ -60,7 +60,7 @@ class UUIDField(models.Field):
     def south_field_triple(self):
         "Returns a suitable description of this field for South."
         from south.modelsinspector import introspector
-        field_class = "iplatform.core.fields.idtypes.UUIDField"
+        field_class = "djangospot.utils.fields.UUIDField"
         args, kwargs = introspector(self)
         for kw in ('auto', 'version', 'node', 'clock_seq', 'namespace', 'name'):
             val = getattr(self, kw, None)

@@ -31,8 +31,8 @@ class App(models.Model):
     description         = models.TextField()
     # If they specify an alternative license the foreign key will be empty.
     license             = models.ForeignKey(License, blank=True, null=True)
-    license_name        = models.CharField(max_length=128)
-    license_description = models.TextField()
+    license_name        = models.CharField(max_length=128, blank=True, null=True)
+    license_description = models.TextField(blank=True, null=True)
     tags                = TagField(blank=True, null=True)
     website             = models.URLField(verify_exists=False)
     # If the app has not been claimed then there is no owner.
