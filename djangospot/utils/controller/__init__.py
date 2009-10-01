@@ -1,11 +1,18 @@
 from coffin.shortcuts import render_to_response
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 
 class Controller(object):
+    login_required = False
+    
     def __call__(self, request, *args, **kwargs):
         method = request.method.lower()
         view = getattr(self, method, getattr(self, 'get'))
+        if (self.login_required\
+          or getattr(view, 'login_required', False))\
+          and not request.user.is_authenticated():
+            return HttpResponseRedirect(reverse('auth_login'))
         return view(request, *args, **kwargs)
     
     def get(self, request, *args, **kwargs):

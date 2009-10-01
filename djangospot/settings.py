@@ -67,7 +67,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'coffin.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
 ROOT_URLCONF = 'djangospot.urls'
@@ -79,9 +79,11 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
 )
 
+ACCOUNT_ACTIVATION_DAYS = 7
+
 INSTALLED_APPS = (
     'django.contrib.admin',
-    'django.contrib.auth',
+    'coffin.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
@@ -94,6 +96,8 @@ INSTALLED_APPS = (
     'treebeard',
     'coffin',
     'coffin.contrib.markup',
+    
+    'registration',
     
     'djangospot.utils',
     'djangospot.utils.forms',

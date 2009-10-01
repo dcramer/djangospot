@@ -18,6 +18,8 @@ class IndexController(Controller):
         return self.respond('apps/index.html', context, request)
 
 class SubmitController(Controller):
+    login_required = True
+    
     def get(self, request):
         form = SubmitAppForm()
 
@@ -30,7 +32,9 @@ class SubmitController(Controller):
     def post(self, request):
         form = SubmitAppForm(request.POST)
         if form.is_valid():
-            app = form.save()
+            app = form.save(commit=False)
+            app.owner = request.user
+            app.save()
 
             return HttpResponseRedirect(reverse('apps.index'))
 
@@ -39,7 +43,6 @@ class SubmitController(Controller):
         }
 
         return self.respond('apps/submit.html', context, request)
-        
 
 class ViewController(Controller):
     """

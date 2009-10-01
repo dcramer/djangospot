@@ -3,7 +3,7 @@ from djangospot.utils.fields import *
 from tagging.fields import TagField
 from djangoratings.fields import RatingField
 
-from django.contrib.auth.models import User
+from coffin.contrib.auth.models import User
 
 LOCALES = (
     ('en', 'English'),

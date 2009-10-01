@@ -2,9 +2,10 @@
 
 {% block content %}
 
-<ul>
-{% for app in apps %}
-    <li><a href='{% url apps.view app.pk %}'>{{ app }}</a></li>
-{% endfor %}
-</ul>
+	<ul>
+	{% for app in apps %}
+		<li><a href='{% url apps.view app.pk %}'>{{ app }}</a></li>
+	{% endfor %}
+	</ul>
+
 {% endblock content %}

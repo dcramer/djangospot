@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from coffin.contrib.auth.models import User
 from django.db import models
 from djangoratings.fields import RatingField
 from tagging.fields import TagField
