@@ -18,7 +18,7 @@ class License(models.Model):
         return self.name
 
 class Category(models.Model):
-    license_id          = UUIDField(auto=True)
+    category_id         = UUIDField(auto=True)
     name                = models.CharField(max_length=128, unique=True)
     description         = models.TextField()
 
@@ -48,6 +48,14 @@ class App(models.Model):
 
     def __unicode__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if self.license:
+            self.license_name = self.license.name
+            self.license_description = self.license.description
+        self.category_ids = [c.pk for c in self.categories.all()]
+        super(App, self).save(*args, **kwargs)
+
 
 class AppRole(models.Model):
     levels = (
